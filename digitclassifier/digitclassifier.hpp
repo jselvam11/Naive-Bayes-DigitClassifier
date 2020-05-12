@@ -73,16 +73,16 @@ private:
     const char kCoorValSeperator = ',';
     const char kGrayPixelChar = '+';
     const char kBlackPixelChar = '#';
-    const std::string kDefTrainDataPath = "/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                                        "digitclassifier/digitclassifier/digitdata/trainingimages";
-    const std::string kDefTrainLabelPath = "/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                                        "digitclassifier/digitclassifier/digitdata/traininglabels";
-    const std::string kDefTestDataPath = "/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                                        "digitclassifier/digitclassifier/digitdata/testimages";
-    const std::string kDefTestLabelPath = "/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                                        "digitclassifier/digitclassifier/digitdata/testlabels";
-    const std::string kDefModelWriteReadPath = "/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                                            "digitclassifier/digitclassifier/datamodel.txt";
+    const std::string kDefTrainDataPath = "/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                                        "digitclassifier/digitdata/trainingimages";
+    const std::string kDefTrainLabelPath = "/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                                        "digitclassifier/digitdata/traininglabels";
+    const std::string kDefTestDataPath = "/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                                        "digitclassifier/digitdata/testimages";
+    const std::string kDefTestLabelPath = "/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                                        "digitclassifier/digitdata/testlabels";
+    const std::string kDefModelWriteReadPath = "/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                                            "digitclassifier/datamodel.txt";
     
     // Creates a 2D vector of type double of size 10 by 10.
     // Sets every value in the 2d vector to 0 by default.

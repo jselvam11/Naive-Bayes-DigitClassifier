@@ -11,10 +11,10 @@
 
 TEST_CASE("Import Data Tests"){
     digitClassifier digit;
-    digit.ImportData("/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                     "digitclassifier/digitclassifier/digitdata/trainingimages",
-                     "/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                     "digitclassifier/digitclassifier/digitdata/traininglabels");
+    digit.ImportData("/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                     "digitclassifier/digitdata/trainingimages",
+                     "/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                     "digitclassifier/digitdata/traininglabels");
     
     SECTION("Number of Images Tests"){
         REQUIRE(digit.num_train_exmp == 5000);
@@ -58,14 +58,14 @@ TEST_CASE("Import Data Tests"){
 
 TEST_CASE("File Writing/ Reading Tests"){
     digitClassifier digit;
-    digit.ImportData("/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                     "digitclassifier/digitclassifier/digitdata/trainingimages",
-                     "/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                     "digitclassifier/digitclassifier/digitdata/traininglabels");
+    digit.ImportData("/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                     "digitclassifier/digitdata/trainingimages",
+                     "/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                     "digitclassifier/digitdata/traininglabels");
     
     SECTION("Check If File Writting/Reading is consistent") {
-        digit.WriteModelToFile("/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                               "digitclassifier/digitclassifier/datamodel.txt");
+        digit.WriteModelToFile("/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                               "digitclassifier/datamodel.txt");
         int num_elem = digit.num_train_exmp;
         std::map<int,std::map<Coordinates,std::pair<int, int>>> data =
         digit.data_set;
@@ -74,8 +74,8 @@ TEST_CASE("File Writing/ Reading Tests"){
         digit.prob_set;
         
         digitClassifier new_digit;
-        new_digit.ImportModelFromFile("/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                                      "digitclassifier/digitclassifier/datamodel.txt");
+        new_digit.ImportModelFromFile("/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                                      "digitclassifier/datamodel.txt");
         REQUIRE(new_digit.num_train_exmp == num_elem);
         REQUIRE(new_digit.data_set == data);
         REQUIRE(new_digit.prob_set == prob);
@@ -83,26 +83,26 @@ TEST_CASE("File Writing/ Reading Tests"){
     
     SECTION("Check If reading/writing is succesfull"){
         
-        REQUIRE(digit.WriteModelToFile("/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                                       "digitclassifier/digitclassifier/datamodel.txt"));
-        REQUIRE(digit.ImportModelFromFile("/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                                          "digitclassifier/digitclassifier/datamodel.txt"));
+        REQUIRE(digit.WriteModelToFile("/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                                       "digitclassifier/datamodel.txt"));
+        REQUIRE(digit.ImportModelFromFile("/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                                          "digitclassifier/datamodel.txt"));
         
     }
     
 }
 TEST_CASE("Image Classification Tests"){
     digitClassifier digit;
-    digit.ImportData("/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                     "digitclassifier/digitclassifier/digitdata/trainingimages",
-                     "/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                     "digitclassifier/digitclassifier/digitdata/traininglabels");
+    digit.ImportData("/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                     "digitclassifier/digitdata/trainingimages",
+                     "/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                     "digitclassifier/digitdata/traininglabels");
     
     SECTION("Check If Confusion matrix is valid"){
-        ConfusionMatrix matrix = digit.ClassifyImages("/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                                                      "digitclassifier/digitclassifier/digitdata/testimages",
-                                                      "/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                                                      "digitclassifier/digitclassifier/digitdata/testlabels");
+        ConfusionMatrix matrix = digit.ClassifyImages("/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                                                      "digitclassifier/digitdata/testimages",
+                                                      "/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                                                      "digitclassifier/digitdata/testlabels");
         for (int i=0; i<=9; i++) {
             double prob = 0;
             for (int j=0; j<=9; j++) {
@@ -114,27 +114,27 @@ TEST_CASE("Image Classification Tests"){
     }
     
     SECTION("Check if Same Models Provide Same Matrix") {
-        ConfusionMatrix matrix = digit.ClassifyImages("/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                                                      "digitclassifier/digitclassifier/digitdata/testimages",
-                                                      "/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                                                      "digitclassifier/digitclassifier/digitdata/testlabels");
-        digit.WriteModelToFile("/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                               "digitclassifier/digitclassifier/datamodel.txt");
+        ConfusionMatrix matrix = digit.ClassifyImages("/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                                                      "digitclassifier/digitdata/testimages",
+                                                      "/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                                                      "digitclassifier/digitdata/testlabels");
+        digit.WriteModelToFile("/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                               "digitclassifier/datamodel.txt");
         digitClassifier importedDigit;
-        importedDigit.ImportModelFromFile("/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                                          "digitclassifier/digitclassifier/datamodel.txt");
-        ConfusionMatrix matrix2 = importedDigit.ClassifyImages("/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                                                               "digitclassifier/digitclassifier/digitdata/testimages",
-                                                               "/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                                                               "digitclassifier/digitclassifier/digitdata/testlabels");
+        importedDigit.ImportModelFromFile("/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                                          "digitclassifier/datamodel.txt");
+        ConfusionMatrix matrix2 = importedDigit.ClassifyImages("/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                                                               "digitclassifier/digitdata/testimages",
+                                                               "/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                                                               "digitclassifier/digitdata/testlabels");
         REQUIRE(matrix == matrix2);
     }
     
     SECTION("Check If Each Digit is at least %60 Correct") {
-        ConfusionMatrix matrix = digit.ClassifyImages("/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                                                      "digitclassifier/digitclassifier/digitdata/testimages",
-                                                      "/Users/jeeva/Desktop/Naive-Bayes-DigitClassifier-master/"
-                                                      "digitclassifier/digitclassifier/digitdata/testlabels");
+        ConfusionMatrix matrix = digit.ClassifyImages("/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                                                      "digitclassifier/digitdata/testimages",
+                                                      "/Users/jeeva/Naive-Bayes-DigitClassifier/"
+                                                      "digitclassifier/digitdata/testlabels");
         double minimum_correct = 0.6;
         for (int i=9; i<=9; i++) {
             REQUIRE(matrix[i][i] >= minimum_correct);
