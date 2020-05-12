@@ -63,7 +63,7 @@ TEST_CASE("File Writing/ Reading Tests"){
                      "/Users/jeeva/Naive-Bayes-DigitClassifier/"
                      "digitclassifier/digitdata/traininglabels");
     
-    SECTION("Check If File Writting/Reading is consistent") {
+    SECTION("Check If File Writing/Reading is consistent") {
         digit.WriteModelToFile("/Users/jeeva/Naive-Bayes-DigitClassifier/"
                                "digitclassifier/datamodel.txt");
         int num_elem = digit.num_train_exmp;
@@ -81,7 +81,7 @@ TEST_CASE("File Writing/ Reading Tests"){
         REQUIRE(new_digit.prob_set == prob);
     }
     
-    SECTION("Check If reading/writing is succesfull"){
+    SECTION("Check If reading/writing is successful"){
         
         REQUIRE(digit.WriteModelToFile("/Users/jeeva/Naive-Bayes-DigitClassifier/"
                                        "digitclassifier/datamodel.txt"));
@@ -91,6 +91,7 @@ TEST_CASE("File Writing/ Reading Tests"){
     }
     
 }
+
 TEST_CASE("Image Classification Tests"){
     digitClassifier digit;
     digit.ImportData("/Users/jeeva/Naive-Bayes-DigitClassifier/"

@@ -55,9 +55,9 @@ public:
     // Returns a boolean that represents if the file reading was succesfull.
     bool ImportModelFromFile(const std::string &file_path);
     
-    // Classifies the given images and prints out the correctnes percentage
+    // Classifies the given images and prints out the correctness percentage
     // Takes 2 std::strings that represent the label and data files path.
-    // Returns a confusion matrix as described in the assignment sheet.
+    // Returns a confusion matrix.
     ConfusionMatrix ClassifyImages(const std::string &file_path,
                         const std::string &label_path);
 private:

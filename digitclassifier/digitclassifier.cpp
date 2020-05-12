@@ -333,11 +333,11 @@ bool digitClassifier::ImportModelFromFile(const std::string &file_path) {
                 int num_grblack = std::stoi(bwg_freq[1]);
                 Coordinates coord = std::make_pair(col,row);
                 
-                for(int i = 0; i < num_white; i++){
+                for (int i = 0; i < num_white; i++){
                     data_set[digit][coord].first++;
                 }
                 
-                for(int i = 0; i < num_grblack; i++){
+                for (int i = 0; i < num_grblack; i++){
                     data_set[digit][coord].second++;
                 }
             }
@@ -363,7 +363,7 @@ ConfusionMatrix digitClassifier::ClassifyImages(const std::string &file_path,
     int correct_digits = 0;
     int num_test_img = 0;
     
-    while(true) {
+    while (true) {
         // Same logic used in creating a model is used here.
         if (!std::getline(label_file,label)) {
             break;
@@ -376,10 +376,10 @@ ConfusionMatrix digitClassifier::ClassifyImages(const std::string &file_path,
             std::getline(train_file,line);
             for (int col = 0; col < kImgSideLen; col++) {
                 Coordinates coord = std::make_pair(col, row);
-                if(line.at(col) == kGrayPixelChar ||
+                if (line.at(col) == kGrayPixelChar ||
                    line.at(col) == kBlackPixelChar){
                     img[coord] = kGrayBlackPixVal;
-                } else{
+                } else {
                     img[coord] = kWhitePixVal;
                 }
             }

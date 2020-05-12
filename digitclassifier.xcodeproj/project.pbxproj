@@ -101,7 +101,7 @@
 		DB4C0B2B217A484A008D8678 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "A.Kadri Türker";
 				TargetAttributes = {
 					DB4C0B32217A484A008D8678 = {
@@ -254,6 +254,7 @@
 		DB4C0B3B217A484A008D8678 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -262,6 +263,7 @@
 		DB4C0B3C217A484A008D8678 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
